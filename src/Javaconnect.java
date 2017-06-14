@@ -19,9 +19,9 @@ public class Javaconnect
     try
     {
         Class.forName("org.sqlite.JDBC");
-        Connection conn=DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Prashanth\\Documents\\NetBeansProjects\\JavaApplication10\\LibraryMS.sqlite");
+        Connection conn=DriverManager.getConnection("jdbc:sqlite:/home/neo/NetBeansProjects/lm/LibraryMS.sqlite");
         return conn;
-    }catch(Exception e)
+    }catch(ClassNotFoundException | SQLException e)
     {
         JOptionPane.showMessageDialog(null,e);
         return null;

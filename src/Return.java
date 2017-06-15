@@ -2,6 +2,7 @@
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -328,6 +329,28 @@ public class Return extends javax.swing.JFrame {
         // TODO add your handling code here:
         String sql="select * from Issue where Student_Id=?";
         try{
+           pst=conn.prepareStatement(sql);
+           pst.setString(7,jTextField1,getText());
+           rs=pst.executeQuery();
+           if(rs.next()){
+               String add1=rs.getString("SName");
+               jTextField2.setText(add1);
+            
+               rs.close();
+               pst.close();
+           }else{
+               JOptionPane.showMessageDialog(null,"Book is not Issued with this Student ID");
+           }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        } finally{
+            try{
+                rs.close();
+                pst.close();
+            }catch(Exception e){
+                
+            }
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

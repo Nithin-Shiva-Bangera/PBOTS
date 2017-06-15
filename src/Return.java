@@ -330,12 +330,35 @@ public class Return extends javax.swing.JFrame {
         String sql="select * from Issue where Student_Id=?";
         try{
            pst=conn.prepareStatement(sql);
-           pst.setString(7,jTextField1,getText());
+           pst.setString(1,jTextField1.getText());
            rs=pst.executeQuery();
            if(rs.next()){
                String add1=rs.getString("SName");
                jTextField2.setText(add1);
-            
+               String add2=rs.getString("FName");
+               jTextField3.setText(add2);
+               String add3=rs.getString("Course");
+               jTextField4.setText(add3);
+               String add4=rs.getString("Branch");
+               jTextField5.setText(add4);
+               String add5=rs.getString("Year");
+               jTextField6.setText(add5);
+               String add6=rs.getString("Semester");
+               jTextField7.setText(add6);
+               String add7=rs.getString("Book_ID");
+               jTextField8.setText(add7);
+               String add8=rs.getString("Name");
+               jTextField9.setText(add8);
+               String add9=rs.getString("Edition");
+               jTextField10.setText(add9);
+               String add10=rs.getString("Publisher");
+               jTextField11.setText(add10);
+               String add11=rs.getString("Price");
+               jTextField12.setText(add11);
+               String add12=rs.getString("Pages");
+               jTextField13.setText(add12);
+               String add13=rs.getString("DateOfIssue");
+               jTextField14.setText(add13);
                rs.close();
                pst.close();
            }else{
